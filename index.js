@@ -1,5 +1,8 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
+app.use(express.json());
+app.use(cors());
 const PORT = 3000;
 
 app.get("/api/question", (req, res) => {
@@ -19,7 +22,7 @@ app.get("/api/question", (req, res) => {
       ],
     },
   };
-  res.json({
+  res.send({
     success: true,
     message: "Question data fetched successfully",
     data: data,
